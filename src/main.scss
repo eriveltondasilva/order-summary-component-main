@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+// #settings
+// imports de fonts
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+// colors
+$color-primary: hsl(245, 75%, 52%);
+$color-surface: hsl(225, 100%, 94%);
+
+$text-primary: hsl(223, 47%, 23%);
+$text-secondary: hsl(224, 23%, 55%);
+
+// fonts
+$fonts: "Verdana", "Arial", "Helvetica", sans-serif;
+$font-redHatDisplay: "Red Hat Display", $fonts;
+
+// #base
+html {
+    font-size: 16rem;
+    line-height: 1.5;
+    font-family: $font-redHatDisplay;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+.attribution {
+    color: $color-primary;
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
