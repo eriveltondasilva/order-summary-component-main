@@ -17,7 +17,7 @@ $font-redHatDisplay: "Red Hat Display", $fonts;
 
 // #base
 html {
-    font-size: 16rem;
+    font-size: 1rem;
     line-height: 1.5;
     font-family: $font-redHatDisplay;
 }
@@ -29,10 +29,23 @@ html {
 body {
     height: 100vh;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+}
+
+body > * {
+    grid-column: 2;
+}
+
+main {
+    width: 300px;
+}
+
+img {
+    width: 100%;
 }
 
 .attribution {
-    color: $color-primary;
     font-size: 11px;
     text-align: center;
 }
