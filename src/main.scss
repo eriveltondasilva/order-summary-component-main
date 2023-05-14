@@ -1,21 +1,32 @@
 @charset "utf-8";
 
 // #settings
-// imports de fonts
+// imports
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
 
-// colors
-$color-primary: hsl(245, 75%, 52%);
-$color-surface: hsl(225, 100%, 94%);
+// color name
+$colorName-paleBlue: hsl(225, 100%, 94%);
+$colorName-brightBlue: hsl(245, 75%, 52%);
+$colorName-veryPaleBlue: hsl(225, 100%, 98%);
+$colorName-unsaturatedBlue: hsl(224, 23%, 55%);
+$colorName-darkBlue: hsl(223, 47%, 23%);
 
-$text-primary: hsl(223, 47%, 23%);
-$text-secondary: hsl(224, 23%, 55%);
+// colors
+$color-primary: $colorName-brightBlue;
+$color-surface: $colorName-paleBlue;
+$text-primary: $colorName-darkBlue;
+$text-secondary: $colorName-unsaturatedBlue;
 
 // fonts
 $fonts: "Verdana", "Arial", "Helvetica", sans-serif;
 $font-redHatDisplay: "Red Hat Display", $fonts;
 
-// #base
+// funções
+@function light($color, $percent: 80%) {
+    @return mix($color, #fff, $percent);
+}
+
+//
 html {
     font-size: 1rem;
     line-height: 1.5;
@@ -24,31 +35,127 @@ html {
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     height: 100vh;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 300px 1fr;
-}
+    background-image: url("/dist/img/pattern-background-desktop.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: $colorName-paleBlue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-body > * {
-    grid-column: 2;
+    @media screen and (max-width: 375px) {
+        background-image: url("/dist/img/pattern-background-mobile.svg");
+    }
 }
 
 main {
-    width: 300px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 20px;
 }
 
 img {
     width: 100%;
 }
 
+.card__img > img {
+    border-radius: 20px 20px 0 0;
+}
+
+.card__title {
+    text-align: center;
+    font-weight: 900;
+    margin-top: 20px;
+    color: $text-primary;
+    font-size: 1.5rem;
+}
+
+.card__text {
+    text-align: center;
+    color: $text-secondary;
+    font-size: 1rem;
+    padding: 0 30px;
+}
+
+.price {
+    display: flex;
+    padding: 0 40px;
+    margin-top: 20px;
+}
+
+.price__img {
+    width: 50px;
+    margin-right: 18px;
+}
+
+.price__title {
+    font-weight: 900;
+    color: $text-primary;
+}
+
+.price__value {
+    color: $text-secondary;
+}
+
+.price__link {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-weight: 700;
+}
+
+.price__link:hover {
+    text-decoration: none;
+}
+
+.card__footer {
+    margin: 20px 0;
+    padding: 0 30px;
+}
+
+.button {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
+    padding: 10px 0;
+    border-radius: 8px;
+}
+
+.button--primary {
+    color: $colorName-veryPaleBlue;
+    background-color: $color-primary;
+    box-shadow: 0 20px 10px $colorName-paleBlue;
+}
+
+.button--cancel {
+    background-color: transparent;
+    color: $text-secondary;
+    font-weight: 700;
+}
+
+.button--primary:hover {
+    background-color: light($color-primary);
+}
+
+.button--cancel:hover {
+    color: $text-primary;
+}
+
+// ####
 .attribution {
     font-size: 11px;
     text-align: center;
 }
+
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
