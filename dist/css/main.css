@@ -61,7 +61,7 @@ img {
 .price {
   display: flex;
   padding: 0 40px;
-  margin-top: 20px;
+  margin: 50px 0;
 }
 
 .price__img {
@@ -82,7 +82,7 @@ img {
   display: flex;
   align-items: center;
   margin-left: auto;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .price__link:hover {
