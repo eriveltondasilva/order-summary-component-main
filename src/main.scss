@@ -92,23 +92,27 @@ img {
 }
 
 .price__img {
-    width: 50px;
+    width: 45px;
     margin-right: 18px;
 }
 
 .price__title {
+    font-size: 1rem;
     font-weight: 900;
     color: $text-primary;
 }
 
 .price__value {
     color: $text-secondary;
+    font-size: 1rem;
 }
 
 .price__link {
     display: flex;
+    font-size: 0.9rem;
     align-items: center;
     margin-left: auto;
+    padding-right: 8px;
     font-weight: 600;
 }
 
