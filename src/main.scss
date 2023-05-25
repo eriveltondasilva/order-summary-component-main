@@ -1,165 +1,235 @@
-@charset "utf-8";
+@charset 'utf-8';
 
-// #settings
+
+
+// #SETTINGS
 // imports
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
 
-// color name
-$colorName-paleBlue: hsl(225, 100%, 94%);
-$colorName-brightBlue: hsl(245, 75%, 52%);
-$colorName-veryPaleBlue: hsl(225, 100%, 98%);
-$colorName-unsaturatedBlue: hsl(224, 23%, 55%);
-$colorName-darkBlue: hsl(223, 47%, 23%);
+// color's names
+$color-PaleBlue: hsl(225, 100%, 94%);
+$color-BrightBlue: hsl(245, 75%, 52%);
+$color-VeryPaleBlue: hsl(225, 100%, 98%);
+$color-UnsaturatedBlue: hsl(224, 23%, 55%);
+$color-DarkBlue: hsl(223, 47%, 23%);
 
 // colors
-$color-primary: $colorName-brightBlue;
-$color-surface: $colorName-paleBlue;
-$text-primary: $colorName-darkBlue;
-$text-secondary: $colorName-unsaturatedBlue;
+$color-background: $color-PaleBlue;
+$color-surface: $color-VeryPaleBlue;
+$color-primary: $color-BrightBlue;
+$color-shadow: $color-PaleBlue;
+$text-primary: $color-DarkBlue;
+$text-secondary: $color-UnsaturatedBlue;
+$text-button: $color-VeryPaleBlue;
 
 // fonts
 $fonts: "Verdana", "Arial", "Helvetica", sans-serif;
 $font-redHatDisplay: "Red Hat Display", $fonts;
 
-// funções
+// other
+$breakpoint: 375px;
+
+
+
+// #FUNÇÕES
 @function light($color, $percent: 80%) {
     @return mix($color, #fff, $percent);
 }
 
-//
-html {
-    font-size: 1rem;
-    line-height: 1.5;
-    font-family: $font-redHatDisplay;
-}
 
+
+// #BASE
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin    : 0;
+    padding   : 0;
 }
 
 body {
     height: 100vh;
-    width: 100%;
-    display: grid;
-    background-image: url("/dist/img/pattern-background-desktop.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: $colorName-paleBlue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @media screen and (max-width: 375px) {
-        background-image: url("/dist/img/pattern-background-mobile.svg");
-    }
-}
-
-main {
-    width: 400px;
-    background-color: #fff;
-    border-radius: 20px;
+    width : 100%;
 }
 
 img {
     width: 100%;
 }
 
-.card__img > img {
-    border-radius: 20px 20px 0 0;
+
+
+// #TYPOGRAPHY
+html {
+    font: 1rem / 1.5 $font-redHatDisplay;
 }
 
-.card__title {
-    text-align: center;
-    font-weight: 900;
-    margin-top: 30px;
-    color: $text-primary;
-    font-size: 1.5rem;
+.card {
+    &__text {
+        text-align: center;
+    }
+    &__title {
+        font: {
+            size  : 1.5rem;
+            weight: 900;
+        }
+        text-align: center;
+    }
 }
 
-.card__text {
+.price {
+    &__link {
+        font: {
+            size  : 0.9rem;
+            weight: 500;
+        }
+    }
+    &__title {
+        font: {
+            size  : 1rem;
+            weight: 900;
+        }
+    }
+}
+
+.button {
+    font-weight: 700;
+}
+
+.attribution {
+    font-size : 11px;
     text-align: center;
-    color: $text-secondary;
-    font-size: 1rem;
-    padding: 0 30px;
+}
+
+
+
+// #LAYOUT
+body {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
 }
 
 .price {
     display: flex;
-    padding: 0 40px;
-    margin: 50px 0;
-}
-
-.price__img {
-    width: 45px;
-    margin-right: 18px;
-}
-
-.price__title {
-    font-size: 1rem;
-    font-weight: 900;
-    color: $text-primary;
-}
-
-.price__value {
-    color: $text-secondary;
-    font-size: 1rem;
 }
 
 .price__link {
-    display: flex;
-    font-size: 0.9rem;
+    display    : flex;
     align-items: center;
-    margin-left: auto;
-    padding-right: 8px;
-    font-weight: 500;
-}
-
-.price__link:hover {
-    text-decoration: none;
-}
-
-.card__footer {
-    margin-bottom: 30px;
-    padding: 0 30px;
 }
 
 .button {
-    text-decoration: none;
-    display: flex;
+    display        : flex;
     justify-content: center;
-    margin: 18px 0;
-    padding: 10px 0;
-    border-radius: 8px;
-    font-weight: 700;
 }
 
-.button--primary {
-    color: $colorName-veryPaleBlue;
-    background-color: $color-primary;
-    box-shadow: 0 20px 10px $colorName-paleBlue;
+
+
+// #COMPONENTS
+.card {
+    width        : 400px;
+    margin       : 20px 0;
+    border-radius: 16px;
+
+    &__title {
+        margin-top: 30px;
+    }
+    &__text {
+        padding: 0 30px;
+    }
+    &__footer {
+        margin-bottom: 30px;
+        padding      : 0 30px;
+    }
 }
 
-.button--cancel {
-    background-color: transparent;
-    color: $text-secondary;
+.card__img > img {
+    border-radius: 20px 20px 0 0;
 }
 
-.button--primary:hover {
-    background-color: light($color-primary);
+.price {
+    margin : 50px 0;
+    padding: 0 40px;
+
+    &__img {
+        width       : 45px;
+        margin-right: 18px;
+    }
+    &__link {
+        margin-left  : auto;
+        padding-right: 8px;
+    }
+    &__link:hover {
+        text-decoration: none;
+    }
 }
 
-.button--cancel:hover {
-    color: $text-primary;
+.button {
+    border-radius  : 8px;
+    margin         : 18px 0;
+    padding        : 10px 0;
+    text-decoration: none;
 }
 
-// ####
-.attribution {
-    font-size: 11px;
-    text-align: center;
+
+
+// #THEME
+body {
+    background: {
+        color : $color-background;
+        image : url("/dist/img/pattern-background-desktop.svg");
+        repeat: no-repeat;
+        size  : contain;
+    }
+}
+
+main {
+    background-color: $color-surface;
+}
+
+.card {
+    &__text {
+        color: $text-secondary;
+    }
+    &__title {
+        color: $text-primary;
+    }
+}
+
+.price {
+    &__title {
+        color: $text-primary;
+    }
+    &__value {
+        color: $text-secondary;
+    }
+}
+
+.button {
+    &--primary {
+        background-color: $color-primary;
+        color           : $text-button;
+        box-shadow      : 0 20px 10px $color-shadow;
+    }
+    &--cancel {
+        background-color: transparent;
+        color           : $text-secondary;
+    }
+    &--primary:hover {
+        background-color: light($color-primary);
+    }
+    &--cancel:hover {
+        color: $text-primary;
+    }
 }
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+
+
+// #MEDIA QUERY
+@media screen and (max-width: $breakpoint) {
+    body {
+        background-image: url("/dist/img/pattern-background-mobile.svg");
+    }
 }
