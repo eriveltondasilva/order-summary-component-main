@@ -20,7 +20,7 @@ This is a solution to the [Order summary card challenge on Frontend Mentor](http
 ### Links
 
 -   Solution URL: [https://www.frontendmentor.io/solutions/ordersummarycomponent-rTV_VAkOoC](https://www.frontendmentor.io/solutions/ordersummarycomponent-rTV_VAkOoC)
--   Live Site URL: [https://www.order-summary-component-main-hepxzn868-eriveltondasilva.vercel.app](order-summary-component-main-hepxzn868-eriveltondasilva.vercel.app)
+-   Live Site URL: [https://www.order-summary-component-main-hepxzn868-eriveltondasilva.vercel.app](https://www.order-summary-component-main-hepxzn868-eriveltondasilva.vercel.app)
 
 ## My process
 
